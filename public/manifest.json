@@ -1,0 +1,21 @@
+{
+    "theme_color": "#7B82FE",
+    "background_color": "#0A0A13",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Zetsuna",
+    "short_name": "Zetsuna",
+    "description": "Content Creator for Genshin Impact and other Hoyoverse Games",
+    "icons": [
+        
+        {
+            "src": "/icon-334x334.png",
+            "sizes": "334x334",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "splash_pages": null
+}
