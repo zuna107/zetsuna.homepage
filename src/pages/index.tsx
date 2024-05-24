@@ -145,11 +145,16 @@ export default function Home() {
   };
   const handleMessageSend = async () => {
     try {
-      const content = `**Name:** ${name}\n**Message:** ${message}\n<@948093919835590666>`;
-      const response = await axios.post(
-        "https://discord.com/api/webhooks/1221401653878456330/DvmRBLVc_Na5Ti3i9ht9HGUExc4zgT0AUwIRkt9q2DT3c4jrW8gK8XPtcc1_vuI9t4ns",
-        { content }
-      );
+      if (!message.trim()) {
+        // Jika message kosong atau hanya terdiri dari spasi
+        document.getElementById("empty-message-status").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("empty-message-status").style.display = "none";
+        }, 3000);
+        return; // Menghentikan fungsi handleMessageSend
+      }
+  
+      const response = await axios.post('/api/send-message', { name, message });
   
       // Show message status
       const messageStatus = document.getElementById("message-status");
@@ -168,6 +173,10 @@ export default function Home() {
       console.error(error);
     }
   };
+  
+  
+  
+  
   
 
   const handleInfoClose = (e) => {
@@ -538,15 +547,16 @@ export default function Home() {
                     <div className={styles["basic-infos"]}>
                       <div className={styles["category-title"]}>Member Since</div>
                       <div style={{ display: "flex", alignItems: "center" }}>
-                        <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" style={{ marginRight: "10px" }} />
+                      <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" alt="Discord Icon" style={{ marginRight: "10px" }} />
+
                         <p style={{ margin: "0" }}>{contact.memberSince}</p>
                       </div>
                     </div>
-                    <div className={styles["roles"]}>
+                    <div className={styles.roles}>
                       <div className={styles["category-title"]}>Roles</div>
                       <div className={styles["roles-list"]}>
                         {contact.roles.map((role, index) => (
-                          <div key={index} className={styles["role"]}>
+                          <div key={index} className={styles.role}>
                             <div className={styles["role-color"]} style={{ background: role.color }}></div>
                             <p>{role.name}</p>
                           </div>
@@ -585,12 +595,16 @@ export default function Home() {
                         Send
                       </button>
                     </div>
-                    <div id="message-status" className={styles["message-status"]} style={{ display: "none" }}>
+                    <div id="message-status" className={`${styles["message-status"]} ${styles["delivered"]}`} style={{ display: "none" }}>
                       <b>Delivered</b>
+                    </div>
+                    <div id="empty-message-status" className={`${styles["message-status"]} ${styles["warning"]}`} style={{ display: "none" }}>
+                      <b>Message cannot be empty</b>
+                    </div>
+
                     </div>
                   </div>
                 </div>
-              </div>
             ))}
           </div>
         </section>

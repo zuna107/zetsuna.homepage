@@ -923,6 +923,9 @@
     font-size: 14px; /* Adjust font size */
   }
   
+  .warning {
+    background-color: red;
+  }
   
 
   .nitro-card {

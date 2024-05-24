@@ -1,5 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config(); // Load .env sebelum melakukan hal lain
+
+
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
+
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("DISCORD_WEBHOOK_URL:", process.env.DISCORD_WEBHOOK_URL);
 
 export const env = createEnv({
   /**
@@ -8,6 +15,7 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    DISCORD_WEBHOOK_URL: z.string().url(),
   },
 
   /**
@@ -25,6 +33,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
