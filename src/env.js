@@ -1,9 +1,7 @@
-import dotenv from 'dotenv';
-dotenv.config(); // Load .env sebelum melakukan hal lain
-
-
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
+import dotenv from 'dotenv';
+dotenv.config(); // Load .env sebelum melakukan hal lain
 
 
 export const env = createEnv({
