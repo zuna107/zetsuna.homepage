@@ -178,14 +178,15 @@ export default function Home() {
   };
   
   
-  
-const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
-  // Cek apakah kotak info sedang ditampilkan dan klik dilakukan di luar kotak info
-  if (showInfo && !e.target.closest(`.${styles["info-box"]}`)) {
-    setShowInfo(false); // Tutup kotak info
-  }
-};
 
+  const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
+    // Cek apakah kotak info sedang ditampilkan dan klik dilakukan di luar kotak info
+    if (showInfo && !(e.target as HTMLElement).closest(`.${styles["info-box"]}`)) {
+      setShowInfo(false); // Tutup kotak info
+    }
+  };
+  
+  
   
   
 
@@ -307,7 +308,7 @@ const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
             data-scroll-speed=".06"
             className="flex flex-row items-center space-x-1.5 pt-6"
           >
-            <a href="https://discordapp.com/users/948093919835590666" target="_blank" rel="noopener noreferrer" passHref>
+            <a href="https://discordapp.com/users/948093919835590666" target="_blank" rel="noopener noreferrer">
               <Button className="flex items-center">
                 <img src="/assets/discord.png" alt="Discord" className="h-4 w-4 mr-1" />
                 <span>Contact Me</span>
@@ -547,15 +548,15 @@ const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
                     <div className={styles["basic-infos"]}>
                       <div className={styles["category-title"]}>Member Since</div>
                       <div style={{ display: "flex", alignItems: "center" }}>
-                        <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" style={{ marginRight: "10px" }} />
+                      <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" style={{ marginRight: "10px" }} alt="Discord Icon" />
                         <p style={{ margin: "0" }}>{contact.memberSince}</p>
                       </div>
                     </div>
-                    <div className={styles["roles"]}>
+                    <div className={styles.roles}>
                       <div className={styles["category-title"]}>Roles</div>
                       <div className={styles["roles-list"]}>
                         {contact.roles.map((role, index) => (
-                          <div key={index} className={styles["role"]}>
+                          <div key={index} className={styles.role}>
                             <div className={styles["role-color"]} style={{ background: role.color }}></div>
                             <p>{role.name}</p>
                           </div>
