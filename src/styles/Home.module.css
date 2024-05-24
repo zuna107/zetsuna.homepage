@@ -912,19 +912,20 @@
   }
   
   .message-status {
-    background-color: #4caf50;
+    background-color: #4caf50; /* Warna hijau untuk pesan terkirim */
     color: white;
     padding: 13px;
     border-radius: 0 4px 4px 0;
     z-index: 9999;
-    position: absolute; /* Set position to absolute */
-    top: 412px; /* Adjust top position */
-    right: 27px; /* Adjust right position */
-    font-size: 14px; /* Adjust font size */
+    position: absolute;
+    top: 412px;
+    right: 27px;
+    font-size: 14px;
   }
   
-  .warning {
-    background-color: red;
+  /* Tambahan untuk pesan peringatan kosong */
+  #empty-message-status {
+    background-color: red; /* Warna merah untuk pesan peringatan */
   }
   
 
