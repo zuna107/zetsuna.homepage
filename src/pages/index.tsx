@@ -143,40 +143,40 @@ export default function Home() {
   const handleShowInfo = () => {
     setShowInfo(!showInfo);
   };
-const handleMessageSend = async () => {
-  try {
-    if (!message.trim()) {
-      // Jika message kosong atau hanya terdiri dari spasi
-      const emptyMessageStatus = document.getElementById("empty-message-status");
-      if (emptyMessageStatus) {
-        emptyMessageStatus.style.display = "block";
+  const handleMessageSend = async () => {
+    try {
+      if (!message.trim()) {
+        // Jika message kosong atau hanya terdiri dari spasi
+        const emptyMessageStatus = document.getElementById("empty-message-status");
+        if (emptyMessageStatus) {
+          emptyMessageStatus.style.display = "block";
+          setTimeout(() => {
+            emptyMessageStatus.style.display = "none";
+          }, 3000);
+        }
+        return; // Menghentikan fungsi handleMessageSend
+      }
+  
+      const response = await axios.post('/api/send-message', { name, message });
+  
+      // Show message status
+      const messageStatus = document.getElementById("message-status");
+      if (messageStatus) {
+        messageStatus.style.display = "block";
+  
+        // Hide message status after 3 seconds
         setTimeout(() => {
-          emptyMessageStatus.style.display = "none";
+          messageStatus.style.display = "none";
         }, 3000);
       }
-      return; // Menghentikan fungsi handleMessageSend
+  
+      setName("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
     }
-
-    const response = await axios.post('/api/send-message', { name, message });
-
-    // Show message status
-    const messageStatus = document.getElementById("message-status");
-    if (messageStatus) {
-      messageStatus.style.display = "block";
-
-      // Hide message status after 3 seconds
-      setTimeout(() => {
-        messageStatus.style.display = "none";
-      }, 3000);
-    }
-
-    setName("");
-    setMessage("");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
+  };
+  
   
   
   
@@ -497,19 +497,18 @@ const handleMessageSend = async () => {
             data-scroll-position="top"
             className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-16 text-center xl:py-24"
           >
-
             <div>
-                <h2 className={styles.title}>
-                  Send me a message
-                  <br />
-                  <span className="text-gradient clash-grotesk tracking-normal">
-                    Mimo Bot
-                  </span>
-                </h2>
-                <p className={styles.description}>
-                  Write your interesting message for me as Mimo.
-                </p>
-              </div>
+              <h2 className={styles.title}>
+                Send me a message
+                <br />
+                <span className="text-gradient clash-grotesk tracking-normal">
+                  Mimo Bot
+                </span>
+              </h2>
+              <p className={styles.description}>
+                Write your interesting message for me as Mimo.
+              </p>
+            </div>
 
             {contact.map((contact, index) => (
               <div key={index} className={`${styles.containera} ${styles.card} nitro-card`}>
@@ -551,16 +550,15 @@ const handleMessageSend = async () => {
                     <div className={styles["basic-infos"]}>
                       <div className={styles["category-title"]}>Member Since</div>
                       <div style={{ display: "flex", alignItems: "center" }}>
-                      <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" alt="Discord Icon" style={{ marginRight: "10px" }} />
-
+                        <img src="https://i.ibb.co/HpbSK8B/icons8-discord-16.png" style={{ marginRight: "10px" }} />
                         <p style={{ margin: "0" }}>{contact.memberSince}</p>
                       </div>
                     </div>
-                    <div className={styles.roles}>
+                    <div className={styles["roles"]}>
                       <div className={styles["category-title"]}>Roles</div>
                       <div className={styles["roles-list"]}>
                         {contact.roles.map((role, index) => (
-                          <div key={index} className={styles.role}>
+                          <div key={index} className={styles["role"]}>
                             <div className={styles["role-color"]} style={{ background: role.color }}></div>
                             <p>{role.name}</p>
                           </div>
@@ -599,19 +597,19 @@ const handleMessageSend = async () => {
                         Send
                       </button>
                     </div>
-                    <div id="message-status" className={`${styles["message-status"]} ${styles["delivered"]}`} style={{ display: "none" }}>
+                    <div id="message-status" className={styles["message-status"]} style={{ display: "none" }}>
                       <b>Delivered</b>
                     </div>
-                    <div id="empty-message-status" className={`${styles["message-status"]} ${styles["warning"]}`} style={{ display: "none" }}>
+                    <div id="empty-message-status" className={styles["message-status"]} style={{ display: "none", backgroundColor: "red" }}>
                       <b>Message cannot be empty</b>
-                    </div>
-
                     </div>
                   </div>
                 </div>
+              </div>
             ))}
           </div>
         </section>
+
       </div>
     </Container>
   );
