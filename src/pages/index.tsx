@@ -179,16 +179,13 @@ export default function Home() {
   
   
   
-  
-  
-  
+const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
+  // Cek apakah kotak info sedang ditampilkan dan klik dilakukan di luar kotak info
+  if (showInfo && !e.target.closest(`.${styles["info-box"]}`)) {
+    setShowInfo(false); // Tutup kotak info
+  }
+};
 
-  const handleInfoClose = (e) => {
-    // Cek apakah kotak info sedang ditampilkan dan klik dilakukan di luar kotak info
-    if (showInfo && !e.target.closest(`.${styles["info-box"]}`)) {
-      setShowInfo(false); // Tutup kotak info
-    }
-  };
   
   
 
