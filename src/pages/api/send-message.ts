@@ -7,7 +7,8 @@ import { env } from '../../../src/env';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { name, message } = req.body;
+    const { name, message }: { name: string, message: string } = req.body;
+
 
     try {
       const content = `**Name:** ${name}\n**Message:** ${message}\n<@948093919835590666>`;
