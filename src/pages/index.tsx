@@ -143,36 +143,40 @@ export default function Home() {
   const handleShowInfo = () => {
     setShowInfo(!showInfo);
   };
-  const handleMessageSend = async () => {
-    try {
-      if (!message.trim()) {
-        // Jika message kosong atau hanya terdiri dari spasi
-        document.getElementById("empty-message-status").style.display = "block";
+const handleMessageSend = async () => {
+  try {
+    if (!message.trim()) {
+      // Jika message kosong atau hanya terdiri dari spasi
+      const emptyMessageStatus = document.getElementById("empty-message-status");
+      if (emptyMessageStatus) {
+        emptyMessageStatus.style.display = "block";
         setTimeout(() => {
-          document.getElementById("empty-message-status").style.display = "none";
-        }, 3000);
-        return; // Menghentikan fungsi handleMessageSend
-      }
-  
-      const response = await axios.post('/api/send-message', { name, message });
-  
-      // Show message status
-      const messageStatus = document.getElementById("message-status");
-      if (messageStatus) {
-        messageStatus.style.display = "block";
-  
-        // Hide message status after 3 seconds
-        setTimeout(() => {
-          messageStatus.style.display = "none";
+          emptyMessageStatus.style.display = "none";
         }, 3000);
       }
-  
-      setName("");
-      setMessage("");
-    } catch (error) {
-      console.error(error);
+      return; // Menghentikan fungsi handleMessageSend
     }
-  };
+
+    const response = await axios.post('/api/send-message', { name, message });
+
+    // Show message status
+    const messageStatus = document.getElementById("message-status");
+    if (messageStatus) {
+      messageStatus.style.display = "block";
+
+      // Hide message status after 3 seconds
+      setTimeout(() => {
+        messageStatus.style.display = "none";
+      }, 3000);
+    }
+
+    setName("");
+    setMessage("");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
   
   
   
