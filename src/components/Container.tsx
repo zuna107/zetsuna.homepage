@@ -199,7 +199,7 @@ export default function Container(props: ContainerProps) {
                 {/* Links */}
                 <ul className="flex min-h-fit w-full flex-col items-start space-y-6 px-[22px] py-[58px]">
                   {navLinks.map((link, i) => (
-                    <button key={link.href} onClick={() => setIsOpen(false)}>
+                    <button key={link.href} onClick={() => setIsOpen(false)} aria-label="Close menu">
                       <NavItem
                         href={link.href}
                         text={link.text}
