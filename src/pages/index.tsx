@@ -60,7 +60,7 @@ const projects = [
     title: "GI Wiki Fandom",
     iconSrc: "/assets/icon/wfndm.png",
     description: "Step into vast magical world for adventure, Welcome to the Genshin Impact Wiki Fandom!",
-    imageSrc: "/assets/skills/Wiki.png",
+    imageSrc: "/assets/info/versions.png",
     link: "https://genshin-impact.fandom.com/wiki/User:SunaOwO"
   }
 ];
@@ -91,19 +91,19 @@ const services = [
     icon: SearchCheck,
   },
   {
-    service: "Regarding Account Security",
-    image: "/assets/info/account.png",
+    service: "'The Road Not Taken' Animated Short | Genshin Impact",
+    image: "/assets/info/accounts.png",
     link: "https://genshin.hoyoverse.com/en/news/detail/103770",
     description:
-      "Regarding issues of account security, including account theft.",
+      "At least you're still out there, somewhere in the world.",
     icon: MonitorSmartphone,
   },
   {
-    service: "Version 4.6 Update Details",
-    image: "/assets/info/version.png",
+    service: "Genshin Impact Version 4.7 Preview",
+    image: "/assets/info/versions.png",
     link: "https://www.hoyolab.com/article/27598031",
     description:
-      "Below are the details of the Version 4.6 update Two Worlds Aflame, the Crimson Night Fades and the update compensation.",
+      "People often feel trapped by the past. All those unresolved regrets, And all those unanswered questions.",
     icon: Eye,
   },
 ];
