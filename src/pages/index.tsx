@@ -61,7 +61,7 @@ const projects = [
     iconSrc: "/assets/icon/wfndm.png",
     description: "Step into vast magical world for adventure, Welcome to the Genshin Impact Wiki Fandom!",
     imageSrc: "/assets/info/versions.png",
-    link: "https://genshin-impact.fandom.com/wiki/User:SunaOwO"
+    link: "https://genshin-impact.fandom.com/wiki/User:MimoDigitalCuttlefish"
   }
 ];
 
@@ -101,7 +101,7 @@ const services = [
   {
     service: "Genshin Impact Version 4.7 Preview",
     image: "/assets/info/versions.png",
-    link: "https://www.hoyolab.com/article/27598031",
+    link: "https://www.hoyolab.com/article/29513513",
     description:
       "People often feel trapped by the past. All those unresolved regrets, And all those unanswered questions.",
     icon: Eye,
