@@ -86,7 +86,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-  grid-auto-rows: 1fr; /* Tambahkan ini untuk memastikan semua baris memiliki tinggi yang sama */
+  grid-auto-rows: 1fr; 
 }
 
 .title {
@@ -119,8 +119,8 @@
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   background-size: cover;
   background-position: center;
-  min-height: 200px; /* Kurangi tinggi minimal */
-  padding: 20px 30px; /* Kurangi padding */
+  min-height: 200px; 
+  padding: 20px 30px;
 }
 
 .serviceItem:hover {
@@ -177,52 +177,52 @@
   }
 
   .grid {
-    grid-template-columns: 1fr; /* Ubah menjadi satu kolom untuk perangkat mobile */
+    grid-template-columns: 1fr;
   }
 
   .title {
-    font-size: 2rem; /* Kurangi ukuran font untuk judul */
+    font-size: 2rem; 
   }
 
   .description {
-    font-size: 0.875rem; /* Kurangi ukuran font untuk deskripsi */
+    font-size: 0.875rem; 
   }
 
   .serviceItem {
-    min-height: 150px; /* Kurangi tinggi minimal untuk perangkat mobile */
-    padding: 10px 20px; /* Kurangi padding untuk perangkat mobile */
+    min-height: 150px; 
+    padding: 10px 20px;
   }
 
   .serviceTitle {
-    font-size: 1.25rem; /* Kurangi ukuran font untuk judul layanan */
+    font-size: 1.25rem; 
   }
 
   .serviceDescription {
-    font-size: 0.875rem; /* Kurangi ukuran font untuk deskripsi layanan */
+    font-size: 0.875rem;
   }
 }
 
 
 @media (max-width: 391px) {
   .title {
-    font-size: 10px; /* Kurangi ukuran font untuk judul */
+    font-size: 10px; 
   }
 
   .description {
-    font-size: 0.75rem; /* Kurangi ukuran font untuk deskripsi */
+    font-size: 0.75rem; 
   }
 
   .serviceItem {
-    min-height: 120px; /* Kurangi tinggi minimal untuk perangkat mobile */
-    padding: 8px 16px; /* Kurangi padding untuk perangkat mobile */
+    min-height: 120px;
+    padding: 8px 16px; 
   }
 
   .serviceTitle {
-    font-size: 1rem; /* Kurangi ukuran font untuk judul layanan */
+    font-size: 1rem; 
   }
 
   .serviceDescription {
-    font-size: 0.75rem; /* Kurangi ukuran font untuk deskripsi layanan */
+    font-size: 0.75rem; 
   }
 }
 
