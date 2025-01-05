@@ -39,7 +39,7 @@ const projects = [
     title: "Genshin Impact SEA",
     iconSrc: "/assets/icon/sea.png",
     imageSrc: "/assets/skills/SEA.jpeg",
-    link: "https://discord.gg/genshinimpactsea",
+    link: "https://discord.gg/hoyoseafandom",
     description: "Step into vast magical world for adventure, Welcome to the Official Gesnhin Impact SEA (Southeast Asia) Community Server."
   },
   {
