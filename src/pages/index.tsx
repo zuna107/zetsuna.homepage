@@ -146,7 +146,6 @@ export default function Home() {
   const handleMessageSend = async () => {
     try {
       if (!message.trim()) {
-        // Jika message kosong atau hanya terdiri dari spasi
         const emptyMessageStatus = document.getElementById("empty-message-status");
         if (emptyMessageStatus) {
           emptyMessageStatus.style.display = "block";
@@ -154,7 +153,7 @@ export default function Home() {
             emptyMessageStatus.style.display = "none";
           }, 3000);
         }
-        return; // Menghentikan fungsi handleMessageSend
+        return;
       }
   
       const response = await axios.post('/api/send-message', { name, message });
@@ -177,12 +176,10 @@ export default function Home() {
     }
   };
   
-  
 
   const handleInfoClose = (e: React.MouseEvent<HTMLElement>) => {
-    // Cek apakah kotak info sedang ditampilkan dan klik dilakukan di luar kotak info
     if (showInfo && !(e.target as HTMLElement).closest(`.${styles["info-box"]}`)) {
-      setShowInfo(false); // Tutup kotak info
+      setShowInfo(false); 
     }
   };
   
@@ -327,7 +324,7 @@ export default function Home() {
               className={cn(
                 styles.scroll,
                 isScrolled && styles["scroll--hidden"],
-                styles["icon-scroll"] // Tambahkan class icon-scroll
+                styles["icon-scroll"]
               )}
             >
               
@@ -384,7 +381,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* projects */}
+        {/* find */}
         <section id="projects" data-scroll-section>
         <div
             data-scroll
@@ -442,13 +439,13 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Services */}
+        {/* board */}
         <section id="services" data-scroll-section>
           <div
             data-scroll
             data-scroll-speed=".4"
             data-scroll-position="top"
-            className={styles.containers} // Gunakan class dari file CSS terpisah
+            className={styles.containers} 
           >
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -458,7 +455,7 @@ export default function Home() {
                 staggerChildren: 0.5,
               }}
               viewport={{ once: true }}
-              className={styles.grid} // Gunakan class dari file CSS terpisah
+              className={styles.grid} 
             >
               <div>
                 <h2 className={styles.title}>
@@ -476,7 +473,7 @@ export default function Home() {
                 <a href={service.link} target="_blank" rel="noopener noreferrer" key={service.service} className={styles.serviceLink}>
                   <div
                     className={styles.serviceItem}
-                    style={{ backgroundImage: `url(${service.image})` }} // Tambahkan style untuk gambar latar belakang
+                    style={{ backgroundImage: `url(${service.image})` }}
                   >
                     <span className={styles.serviceTitle}>{service.service}</span>
                     <span className={styles.serviceDescription}>{service.description}</span>
