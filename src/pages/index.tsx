@@ -29,9 +29,9 @@ import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
 
 const aboutStats = [
-  { label: "Bot Application", value: "3" },
-  { label: "HoYoLAB Posts", value: "52" },
-  { label: "Edits on Wiki Fandom", value: "17" },
+  { label: "Bot Application", value: "7" },
+  { label: "HoYoLAB Posts", value: "60" },
+  { label: "Edits on Wiki Fandom", value: "20" },
 ];
 
 const projects = [
